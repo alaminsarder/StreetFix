@@ -14,14 +14,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 // =================================================================
-// সমাধান: CORS এর জন্য 'http://localhost:3001' যোগ করা হয়েছে
+// ✅ CORS Setup - Render এর লাইভ লিংকও এখানে অ্যাড করা আছে
 // =================================================================
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:5173",
   "http://localhost:5000",
-  "http://localhost:3001", // <-- সমাধান: এই লাইনটি যোগ করা হয়েছে
-  "https://streetfix-qhie.onrender.com",
+  "http://localhost:3001",
+  "https://streetfix-qhie.onrender.com" // <-- তোমার লাইভ Render লিংক
 ];
 
 app.use(
@@ -35,13 +35,15 @@ app.use(
   })
 );
 
-// MongoDB
+// =================================================================
+// ✅ MongoDB Connection
+// =================================================================
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected ✅"))
   .catch((err) => console.log("MongoDB connection error:", err.message));
 
-// Health
+// Health Route
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, message: "StreetFix API running" });
 });
@@ -51,14 +53,16 @@ app.use("/api/problems", require("./routes/problems"));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 
-// ---------- Serve React build ----------
+// =================================================================
+// ✅ Serve React build (Frontend)
+// =================================================================
 const buildPath = path.resolve(__dirname, "..", "frontend", "build");
 const indexFile = path.join(buildPath, "index.html");
 
 console.log("Serving React build from:", buildPath);
 console.log("Index exists?", fs.existsSync(indexFile));
 
-// serve static but don't auto-serve index (Express 5 safe)
+// serve static but don't auto-serve index
 app.use(express.static(buildPath, { index: false }));
 
 // all non-api routes -> React index.html
@@ -72,4 +76,4 @@ app.get(/^(?!\/api).*/, (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT} ✅`));

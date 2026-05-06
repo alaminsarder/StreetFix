@@ -1,7 +1,12 @@
 import axios from "axios";
 
+// ✅ স্মার্ট baseURL: পিসিতে চললে localhost কাজ করবে, আর Render-এ চললে লাইভ লিংক কাজ করবে!
+const baseURL = window.location.origin.includes("localhost")
+  ? "http://localhost:5000"
+  : "https://streetfix-qhie.onrender.com";
+
 const api = axios.create({
-  baseURL: "http://localhost:5000", 
+  baseURL: baseURL,
   withCredentials: true,
 });
 
@@ -21,7 +26,7 @@ export async function getProblemById(id) {
   return res.data;
 }
 
-// স্ট্যাটাস, কমেন্ট বা অন্য যেকোনো কিছু আপডেট করার ফাংশন
+// স্ট্যাটাস বা অন্যান্য আপডেট করার ফাংশন
 export async function updateProblemDetails(problemId, payload) {
   const token = localStorage.getItem("token"); 
   const res = await api.patch(`/api/problems/${problemId}`, payload, {
@@ -36,7 +41,7 @@ export async function updateProblemStatus(problemId, status) {
   return await updateProblemDetails(problemId, { status });
 }
 
-// ✅ নতুন: ডিলিট করার ফাংশনটি এখানে যোগ করা হয়েছে
+// ডিলিট করার ফাংশন
 export async function deleteProblem(problemId) {
   const token = localStorage.getItem("token");
   const res = await api.delete(`/api/problems/${problemId}`, {
