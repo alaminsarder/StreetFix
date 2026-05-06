@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink, useLocation, Navigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import api from "./utils/api"; // ✅ এই লাইনটি যোগ করা হয়েছে
 
 // আপনার পেজ কম্পোনেন্টগুলো import করুন
 import Home from "./pages/home";
