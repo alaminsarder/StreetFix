@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* --- Global Variables --- */
+:root {
+  --ad-bg: #f8fafc;
+  --ad-card: #ffffff;
+  --ad-dark: #0f172a;
+  --ad-slate: #64748b;
+  --ad-border: #e2e8f0;
+  --ad-primary: #4f46e5;
+  --ad-primary-hover: #4338ca;
+}
+
+.ad-dashboard-wrapper {
+  background-color: var(--ad-bg);
+  min-height: 100vh;
+  padding: 40px 0 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden; /* প্রিভেন্ট মোবাইল ওভারফ্লো */
+}
+
+/* --- Header Section --- */
+.ad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.ad-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--ad-dark);
+  letter-spacing: -1px;
+  margin: 0 0 5px 0;
+}
+
+.ad-subtitle {
+  color: var(--ad-slate);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.ad-refresh-btn {
+  background: var(--ad-primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.ad-refresh-btn:hover {
+  background: var(--ad-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Stats Grid --- */
+.ad-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.ad-stat-card {
+  background: var(--ad-card);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--ad-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-stat-title {
+  color: var(--ad-slate);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.ad-stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--ad-dark);
+  line-height: 1;
+}
+
+.ad-text-red { color: #be123c !important; }
+.ad-text-yellow { color: #ca8a04 !important; }
+.ad-text-green { color: #15803d !important; }
+
+/* --- Table Container (Mobile Scrollable) --- */
+.ad-table-container {
+  background: var(--ad-card);
+  border-radius: 16px;
+  border: 1px solid var(--ad-border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  overflow-x: auto; /* মোবাইলের জন্য স্ক্রল */
+  -webkit-overflow-scrolling: touch; /* আইফোনে স্মুথ স্ক্রল */
+}
+
+/* কাস্টম স্ক্রলবার যাতে ইউজার বুঝতে পারে স্ক্রল করা যাবে */
+.ad-table-container::-webkit-scrollbar { height: 6px; }
+.ad-table-container::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+.ad-table-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 800px; /* টেবিল যেন খুব বেশি চেপে না যায় */
+}
+
+.ad-table th {
+  background: #f1f5f9;
+  color: var(--ad-slate);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  border-bottom: 2px solid var(--ad-border);
+  white-space: nowrap;
+}
+
+.ad-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ad-border);
+  vertical-align: middle;
+}
+
+/* Typography & Tags */
+.ad-font-strong { font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
+.ad-text-muted { font-size: 0.85rem; font-weight: 500; white-space: nowrap;}
+.ad-category-tag { padding: 6px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;}
+
+/* --- Row Colors --- */
+.ad-table tbody tr { transition: background-color 0.3s ease; }
+
+.ad-row-pending { background-color: #fff1f2 !important; } 
+.ad-row-pending:hover { background-color: #ffe4e6 !important; }
+.ad-row-pending .ad-font-strong { color: #9f1239; } 
+.ad-row-pending .ad-text-muted { color: #be123c; } 
+.ad-row-pending .ad-category-tag { background-color: #ffe4e6; color: #9f1239; }
+
+.ad-row-in_progress { background-color: #fefce8 !important; } 
+.ad-row-in_progress:hover { background-color: #fef08a !important; }
+.ad-row-in_progress .ad-font-strong { color: #854d0e; } 
+.ad-row-in_progress .ad-text-muted { color: #a16207; }
+.ad-row-in_progress .ad-category-tag { background-color: #fef08a; color: #854d0e; }
+
+.ad-row-resolved { background-color: #f0fdf4 !important; } 
+.ad-row-resolved:hover { background-color: #dcfce7 !important; }
+.ad-row-resolved .ad-font-strong { color: #14532d; } 
+.ad-row-resolved .ad-text-muted { color: #166534; }
+.ad-row-resolved .ad-category-tag { background-color: #dcfce7; color: #166534; }
+
+/* --- Badges --- */
+.ad-status-badge {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ad-status-badge.pending { background-color: #fecdd3; color: #be123c; }
+.ad-status-badge.in_progress { background-color: #fde047; color: #854d0e; }
+.ad-status-badge.resolved { background-color: #bbf7d0; color: #15803d; }
+
+/* --- Select & Buttons --- */
+.ad-action-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.6);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.ad-action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ad-review-btn, .ad-delete-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.ad-review-btn { background-color: #eef2ff; color: #4f46e5; border-color: #c7d2fe; }
+.ad-delete-btn { background-color: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+
+/* --- Modal --- */
+.ad-modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(17, 24, 39, 0.6);
+  display: flex; justify-content: center; align-items: center; z-index: 1000;
+  padding: 20px;
+}
+.ad-modal-content {
+  background-color: var(--ad-card); padding: 24px; border-radius: 16px;
+  width: 100%; max-width: 400px;
+}
+.ad-modal-content textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--ad-border); }
+.ad-modal-actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+.ad-btn-primary, .ad-btn-secondary { padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; border: none; cursor: pointer; }
+.ad-btn-primary { background: var(--ad-primary); color: white; }
+.ad-btn-secondary { background: #f1f5f9; color: var(--ad-slate); }
+
+/* 
+===================================================
+📱 RESPONSIVE DESIGN (For Mobile & Tablets)
+===================================================
+*/
+
+/* ট্যাবলেটের জন্য (iPad/Small Laptops) */
+@media (max-width: 1024px) {
+  .ad-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* বড় মোবাইল এবং ছোট ট্যাবলেটের জন্য */
+@media (max-width: 768px) {
+  .ad-dashboard-wrapper { padding: 20px 0 60px; }
+  
+  .ad-header { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+  }
+  
+  .ad-title { font-size: 1.8rem; }
+  
+  /* রিফ্রেশ বাটন মোবাইলে ফুল স্ক্রিন হবে */
+  .ad-refresh-btn { 
+    width: 100%; 
+    text-align: center; 
+    padding: 14px;
+  }
+  
+  .ad-stats-grid { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px; 
+    margin-bottom: 24px; 
+  }
+  
+  .ad-stat-card { padding: 16px; border-radius: 12px; }
+  .ad-stat-value { font-size: 1.8rem; }
+  .ad-stat-title { font-size: 0.75rem; }
+}
+
+/* খুব ছোট মোবাইলের জন্য (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  .ad-stats-grid { grid-template-columns: 1fr; } /* স্ট্যাটাস কার্ডগুলো এক লাইনে আসবে */
+  .ad-title { font-size: 1.5rem; }
+  .ad-subtitle { font-size: 0.85rem; line-height: 1.4; }
+  
+  /* মডাল সাইজ ফিক্স */
+  .ad-modal-content { padding: 20px; }
+  .ad-modal-actions { flex-direction: column; }
+  .ad-btn-primary, .ad-btn-secondary { width: 100%; text-align: center; }
+}
+/* =========================================
+   🔥 FIX: TABLE FITTING & VISIBLE BUTTONS 🔥
+========================================= */
+
+/* টেবিলের জোরপূর্বক চওড়া ভাব কমানো হলো */
+.ad-table {
+  min-width: 100% !important; 
+}
+
+/* প্যাডিং কমিয়ে এবং লেখাকে ভাঙার (Wrap) অনুমতি দেওয়া হলো */
+.ad-table th, .ad-table td {
+  padding: 10px 8px !important;
+  white-space: normal !important; 
+  word-break: break-word;
+}
+
+/* 🔥 বাটনগুলোকে পাশাপাশি না রেখে ওপর-নিচ করা হলো যাতে কম জায়গা নেয় */
+.ad-action-buttons {
+  display: flex;
+  flex-direction: column !important; /* ওপর-নিচ */
+  gap: 6px;
+  align-items: stretch;
+}
+
+.ad-review-btn, .ad-delete-btn {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 6px 4px !important;
+}
+
+/* 🔥 অ্যাকশন কলামটিকে সবসময় ডানদিকে ভাসমান (Sticky) রাখা হলো */
+.ad-table th:last-child,
+.ad-table td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.05); /* হালকা শ্যাডো */
+}
+
+/* হেডারের অ্যাকশন কলামের কালার */
+.ad-table th:last-child {
+  background-color: #f1f5f9 !important;
+  z-index: 3;
+}
+
+/* হোভার এবং নরমাল অবস্থায় স্টিকি কলামের কালার ম্যাচিং */
+.ad-row-pending td:last-child { background-color: #fff1f2 !important; }
+.ad-row-pending:hover td:last-child { background-color: #ffe4e6 !important; }
+
+.ad-row-in_progress td:last-child { background-color: #fefce8 !important; }
+.ad-row-in_progress:hover td:last-child { background-color: #fef08a !important; }
+
+.ad-row-resolved td:last-child { background-color: #f0fdf4 !important; }
+.ad-row-resolved:hover td:last-child { background-color: #dcfce7 !important; }
+/* =========================================
+   🔥 BULK ACTIONS & CHECKBOX STYLES 🔥
+========================================= */
+
+/* Checkbox Style */
+.ad-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--ad-primary);
+}
+
+/* Selected Row Highlight */
+.ad-row-selected {
+  box-shadow: inset 4px 0 0 var(--ad-primary) !important;
+}
+
+/* Bulk Action Toolbar */
+.ad-bulk-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e293b; /* Dark Slate */
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ad-bulk-count {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.ad-bulk-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ad-bulk-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, opacity 0.2s;
+  color: #fff;
+}
+
+.ad-bulk-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Bulk Button Colors */
+.status-pending { background-color: #e11d48; } /* Red */
+.status-progress { background-color: #ca8a04; } /* Yellow */
+.status-resolved { background-color: #16a34a; } /* Green */
+.btn-review { background-color: #4f46e5; } /* Indigo */
+.btn-delete { background-color: #0f172a; border: 1px solid #334155; } /* Dark */
+
+@media (max-width: 768px) {
+  .ad-bulk-toolbar { flex-direction: column; align-items: stretch; }
+  .ad-bulk-count { text-align: center; }
+  .ad-bulk-buttons { justify-content: center; }
+}

@@ -2,235 +2,147 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 
-function Tile({ title, children }) {
+export default function Home() {
   return (
-    <div className="sf-tile" role="listitem">
-      <div className="sf-tileMedia" aria-hidden="true">{children}</div>
-      <div className="sf-tileLabel">{title}</div>
+    <div className="sf-landing-page">
+      {/* --- HERO SECTION --- */}
+      <header className="sf-hero">
+        <div className="sf-container hero-grid">
+          <div className="hero-content">
+            <div className="hero-badge"><span className="badge-dot"></span> Rated #1 City Management Tool</div>
+            <h1 className="hero-title">Fix your street, <br /> <span>empower your city.</span></h1>
+            <p className="hero-subtitle">The professional platform to report urban issues. Connect directly with officials and track repairs in real-time.</p>
+            <div className="hero-buttons">
+              <Link to="/submit" className="btn-primary">Report an Issue</Link>
+              <Link to="/problems" className="btn-outline">Explore Map</Link>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="img-container">
+              <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1000" alt="City" className="hero-main-img" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* --- Features Section --- */}
+      <section className="sf-section">
+        <div className="sf-container">
+          <div className="section-head center">
+            <span className="section-tag">Features</span>
+            <h2>Better technology, better streets</h2>
+          </div>
+          <div className="features-grid">
+            <div className="feature-card"><h3>⚡ Instant Dispatch</h3><p>Reports are instantly routed to the crew.</p></div>
+            <div className="feature-card"><h3>📍 Geolocation</h3><p>Precise mapping for faster resolution.</p></div>
+            <div className="feature-card"><h3>📊 Analytics</h3><p>Data to prevent future hazards.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Categories Section --- */}
+      <section className="sf-section sf-bg-light">
+        <div className="sf-container">
+          <div className="section-head center"><h2>Report Categories</h2></div>
+          <div className="category-grid">
+            <CategoryCard img="https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&q=80&w=600" title="Road Hazards" desc="Potholes and damages." />
+            <CategoryCard img="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&q=80&w=600" title="Street Lights" desc="Broken or dim lamps." />
+            <CategoryCard img="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600" title="Waste & Trash" desc="Garbage and bins." />
+            <CategoryCard img="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=600" title="Drainage" desc="Water logging issues." />
+          </div>
+        </div>
+      </section>
+
+      {/* --- Premium Testimonials Section --- */}
+      <section className="sf-section sf-testi-section">
+        <div className="sf-container">
+          <div className="section-head center">
+            <h2>Real impact on real people</h2>
+            <p className="section-subtitle">See how StreetFix is changing neighborhoods every day.</p>
+          </div>
+          
+          <div className="premium-testimonial-grid">
+            <div className="premium-testi-card">
+              <div className="quote-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+              </div>
+              <p className="testi-text">"Reported a pothole in front of my house, and it was fixed within 48 hours. Amazing! The process was incredibly smooth."</p>
+              <div className="testi-user-box">
+                <div className="user-avatar bg-indigo">RK</div>
+                <div className="user-info">
+                  <strong>Rahat Khan</strong>
+                  <span>Uttara Resident</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="premium-testi-card">
+              <div className="quote-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+              </div>
+              <p className="testi-text">"The transparency of the tracking system is what I love. I knew exactly when the crew arrived. Highly recommended!"</p>
+              <div className="testi-user-box">
+                <div className="user-avatar bg-emerald">SA</div>
+                <div className="user-info">
+                  <strong>Sarah Ahmed</strong>
+                  <span>Gulshan Resident</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Premium Stats Section --- */}
+      <section className="sf-stats-premium">
+        <div className="sf-container">
+          <div className="stats-grid-modern">
+            <div className="modern-stat-card">
+              <div className="stat-icon-wrap bg-blue-light">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div>
+                <h3 className="stat-number">12,400+</h3>
+                <p className="stat-label">Issues Resolved</p>
+              </div>
+            </div>
+
+            <div className="modern-stat-card">
+              <div className="stat-icon-wrap bg-purple-light">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <h3 className="stat-number text-purple">24h</h3>
+                <p className="stat-label">Avg. Response Time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CTA Section --- */}
+      <section className="sf-cta">
+        <div className="sf-container">
+          <div className="cta-box">
+            <h2>Ready to improve your street?</h2>
+            <p>Join thousands of citizens making a difference today.</p>
+            <Link to="/submit" className="btn-white">Report Now</Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
 
-/* 4 tiles (inline illustrations) */
-function MapTile() {
+// Category Card Component
+function CategoryCard({ img, title, desc }) {
   return (
-    <svg viewBox="0 0 420 240" className="sf-ill" aria-hidden="true">
-      <defs>
-        <linearGradient id="mBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E9F0FF" />
-          <stop offset="1" stopColor="#FFFFFF" />
-        </linearGradient>
-      </defs>
-      <rect x="18" y="16" width="384" height="208" rx="26" fill="url(#mBg)" />
-      <rect x="272" y="56" width="104" height="168" rx="22" fill="#111827" opacity=".92" />
-      <rect x="284" y="78" width="80" height="124" rx="14" fill="#E5E7EB" />
-      <circle cx="324" cy="212" r="7" fill="#94A3B8" />
-      <path d="M84 182 C130 150, 128 120, 160 104 C200 84, 250 96, 266 70" fill="none" stroke="#111827" strokeWidth="56" strokeLinecap="round" />
-      <path d="M84 182 C130 150, 128 120, 160 104 C200 84, 250 96, 266 70" fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" opacity=".95" />
-      <path d="M84 182 C130 150, 128 120, 160 104 C200 84, 250 96, 266 70" fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="round" strokeDasharray="12 16" opacity=".95" />
-      <path d="M160 190s28-22 28-46a28 28 0 1 0-56 0c0 24 28 46 28 46Z" fill="#7C3AED" />
-      <circle cx="160" cy="144" r="10" fill="#fff" opacity=".92" />
-    </svg>
-  );
-}
-
-function GarbageTile() {
-  return (
-    <svg viewBox="0 0 420 240" className="sf-ill" aria-hidden="true">
-      <defs>
-        <linearGradient id="gBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#FFF6D8" />
-          <stop offset="1" stopColor="#FFFFFF" />
-        </linearGradient>
-      </defs>
-      <rect x="18" y="16" width="384" height="208" rx="26" fill="url(#gBg)" />
-      <rect x="168" y="70" width="84" height="18" rx="9" fill="#111827" opacity=".92" />
-      <rect x="152" y="86" width="116" height="116" rx="18" fill="#111827" opacity=".92" />
-      <rect x="180" y="52" width="60" height="16" rx="8" fill="#374151" />
-      <circle cx="126" cy="170" r="14" fill="#60A5FA" opacity=".9" />
-      <circle cx="290" cy="176" r="14" fill="#22C55E" opacity=".9" />
-      <rect x="110" y="144" width="32" height="14" rx="7" fill="#FB7185" opacity=".9" />
-      <rect x="296" y="146" width="30" height="14" rx="7" fill="#F97316" opacity=".9" />
-    </svg>
-  );
-}
-
-function WaterLoggingTile() {
-  return (
-    <svg viewBox="0 0 420 240" className="sf-ill" aria-hidden="true">
-      <defs>
-        <linearGradient id="wBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#D8FBFF" />
-          <stop offset="1" stopColor="#FFFFFF" />
-        </linearGradient>
-      </defs>
-      <rect x="18" y="16" width="384" height="208" rx="26" fill="url(#wBg)" />
-      <path d="M60 166 C120 140, 168 188, 232 160 C290 136, 324 182, 372 160 L372 220 L60 220 Z" fill="#38BDF8" opacity=".55" />
-      <rect x="136" y="98" width="148" height="46" rx="16" fill="#111827" opacity=".92" />
-      <rect x="164" y="78" width="92" height="28" rx="14" fill="#374151" />
-      <circle cx="164" cy="146" r="14" fill="#0F172A" />
-      <circle cx="258" cy="146" r="14" fill="#0F172A" />
-      <circle cx="164" cy="146" r="7" fill="#94A3B8" />
-      <circle cx="258" cy="146" r="7" fill="#94A3B8" />
-    </svg>
-  );
-}
-
-function PotholeTile() {
-  return (
-    <svg viewBox="0 0 420 240" className="sf-ill" aria-hidden="true">
-      <defs>
-        <linearGradient id="pBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#F1EDFF" />
-          <stop offset="1" stopColor="#FFFFFF" />
-        </linearGradient>
-      </defs>
-      <rect x="18" y="16" width="384" height="208" rx="26" fill="url(#pBg)" />
-      <rect x="92" y="108" width="236" height="90" rx="22" fill="#111827" opacity=".92" />
-      <rect x="108" y="128" width="204" height="8" rx="4" fill="#fff" opacity=".9" />
-      <rect x="108" y="146" width="204" height="8" rx="4" fill="#fff" opacity=".8" />
-      <rect x="108" y="164" width="204" height="8" rx="4" fill="#fff" opacity=".7" />
-      <ellipse cx="210" cy="154" rx="46" ry="20" fill="#000" opacity=".35" />
-      <ellipse cx="210" cy="152" rx="40" ry="16" fill="#0B0F14" opacity=".95" />
-      <path d="M304 196 L330 196 L322 164 L312 164 Z" fill="#F59E0B" />
-      <rect x="312" y="156" width="18" height="10" fill="#111827" opacity=".9" />
-    </svg>
-  );
-}
-
-export default function Home() {
-  return (
-    <>
-      {/* HERO */}
-      <section className="sf-heroSplit">
-        <div className="sf-heroInner">
-          <div className="sf-heroLeft">
-            <h1 className="sf-heroTitle">
-              Easy way to <br />
-              report street issues
-            </h1>
-
-            <p className="sf-heroDesc">
-              Report broken roads, street lights, drainage and garbage problems with
-              location details. Track status updates and help improve your city.
-            </p>
-
-            <div className="sf-heroActions">
-              <Link className="sf-heroBtnPrimary" to="/submit">
-                Submit Problem
-              </Link>
-              <Link className="sf-heroBtnGhost" to="/problems">
-                View All Problems
-              </Link>
-            </div>
-          </div>
-
-          <div className="sf-heroRight" role="list" aria-label="Categories">
-            <div className="sf-heroPanel">
-              <div className="sf-heroGrid">
-                <Tile title="Map"><MapTile /></Tile>
-                <Tile title="Garbage"><GarbageTile /></Tile>
-                <Tile title="Water logging"><WaterLoggingTile /></Tile>
-                <Tile title="Pothole"><PotholeTile /></Tile>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY STREETFIX */}
-      <section className="sf-benefits">
-        <div className="sf-benefitsInner">
-          <div className="sf-benefitsHead">
-            <h2 className="sf-benefitsTitle">Why StreetFix</h2>
-            <p className="sf-benefitsSub">
-              A simple, transparent and community-driven way to improve city services.
-            </p>
-          </div>
-
-          <div className="sf-benefitsGrid">
-            <div className="sf-benefitCard">
-              <div className="sf-benefitIcon">⚡</div>
-              <h3 className="sf-benefitName">Fast reporting</h3>
-              <p className="sf-benefitText">
-                Submit a report in seconds with a clear title and location.
-              </p>
-            </div>
-
-            <div className="sf-benefitCard">
-              <div className="sf-benefitIcon">🔎</div>
-              <h3 className="sf-benefitName">Transparent tracking</h3>
-              <p className="sf-benefitText">
-                Track progress with status updates from pending to resolved.
-              </p>
-            </div>
-
-            <div className="sf-benefitCard">
-              <div className="sf-benefitIcon">🛡️</div>
-              <h3 className="sf-benefitName">Safer city</h3>
-              <p className="sf-benefitText">
-                Report hazards early—reduce accidents and improve accessibility.
-              </p>
-            </div>
-
-            <div className="sf-benefitCard">
-              <div className="sf-benefitIcon">🤝</div>
-              <h3 className="sf-benefitName">Community driven</h3>
-              <p className="sf-benefitText">
-                Everyone can contribute to cleaner, safer, and better streets.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="sf-how">
-        <div className="sf-howInner">
-          <div className="sf-howHead">
-            <h2 className="sf-howTitle">How it works</h2>
-            <p className="sf-howSub">A simple process to report issues and track progress.</p>
-          </div>
-
-          <div className="sf-howGrid">
-            <div className="sf-howCard">
-              <div className="sf-howTop">
-                <div className="sf-howNum">1</div>
-                <div className="sf-howIcon" aria-hidden="true">🧾</div>
-              </div>
-              <h3 className="sf-howName">Submit a report</h3>
-              <p className="sf-howText">
-                Add a short title, category and accurate location. Optionally include a photo link.
-              </p>
-              <Link className="sf-howPill" to="/submit">Submit</Link>
-            </div>
-
-            <div className="sf-howCard">
-              <div className="sf-howTop">
-                <div className="sf-howNum">2</div>
-                <div className="sf-howIcon" aria-hidden="true">📍</div>
-              </div>
-              <h3 className="sf-howName">Track status updates</h3>
-              <p className="sf-howText">
-                Reports move through statuses like Pending and In Progress as they are handled.
-              </p>
-              <Link className="sf-howPill" to="/status">Track</Link>
-            </div>
-
-            <div className="sf-howCard">
-              <div className="sf-howTop">
-                <div className="sf-howNum">3</div>
-                <div className="sf-howIcon" aria-hidden="true">✅</div>
-              </div>
-              <h3 className="sf-howName">Issue resolved</h3>
-              <p className="sf-howText">
-                Once fixed, the report is marked as Resolved so everyone can see the outcome.
-              </p>
-              <Link className="sf-howPill" to="/solved">Resolved</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="cat-card-premium">
+      <div className="cat-img-box"><img src={img} alt={title} /></div>
+      <div className="cat-details">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+      </div>
+    </div>
   );
 }

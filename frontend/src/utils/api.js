@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "",          // same-origin: http://localhost:5000
+  baseURL: "http://localhost:5000", 
   withCredentials: true,
 });
 
@@ -13,7 +13,7 @@ export async function createProblem(payload) {
 
 export async function getProblems() {
   const res = await api.get("/api/problems");
-  return res.data; // backend returns array
+  return res.data;
 }
 
 export async function getProblemById(id) {
@@ -21,20 +21,36 @@ export async function getProblemById(id) {
   return res.data;
 }
 
-export async function updateProblem(problemId, payload) {
-  const res = await api.patch(`/api/problems/${problemId}`, payload);
+// স্ট্যাটাস, কমেন্ট বা অন্য যেকোনো কিছু আপডেট করার ফাংশন
+export async function updateProblemDetails(problemId, payload) {
+  const token = localStorage.getItem("token"); 
+  const res = await api.patch(`/api/problems/${problemId}`, payload, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
   return res.data;
 }
 
 export async function updateProblemStatus(problemId, status) {
-  const res = await api.patch(`/api/problems/${problemId}`, { status });
+  return await updateProblemDetails(problemId, { status });
+}
+
+// ✅ নতুন: ডিলিট করার ফাংশনটি এখানে যোগ করা হয়েছে
+export async function deleteProblem(problemId) {
+  const token = localStorage.getItem("token");
+  const res = await api.delete(`/api/problems/${problemId}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
   return res.data;
 }
 
 /* ---------------- Admin ---------------- */
 export async function adminLogin(email, password) {
   const res = await api.post("/api/admin/login", { email, password });
-  return res.data; // { token, admin }
+  return res.data;
 }
 
 export default api;
