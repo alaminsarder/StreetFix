@@ -13,10 +13,14 @@ app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cookieParser());
 
+// =================================================================
+// সমাধান: CORS এর জন্য 'http://localhost:3001' যোগ করা হয়েছে
+// =================================================================
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:5173",
   "http://localhost:5000",
+  "http://localhost:3001", // <-- সমাধান: এই লাইনটি যোগ করা হয়েছে
   "https://streetfix-qhie.onrender.com",
 ];
 
