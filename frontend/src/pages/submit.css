@@ -375,3 +375,364 @@
     grid-column: 1;
   }
 }
+/* =========================================
+   Success Screen Styles & Animations
+   ========================================= */
+
+.sb-success-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sb-success-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 50px 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+/* Animated Big Green Checkmark */
+.sb-success-icon-anim {
+  margin: 0 auto 20px;
+  display: block;
+  animation: scaleBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.sb-success-title {
+  font-size: 28px;
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.sb-success-desc {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.sb-success-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Action Buttons */
+.sb-btn-primary, .sb-btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.sb-btn-primary {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.sb-btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.35);
+}
+
+.sb-btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.sb-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleBounce {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+/* =========================================
+   Success Screen Styles & Animations
+   ========================================= */
+
+.sb-success-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-out;
+  min-height: 60vh;
+}
+
+.sb-success-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 50px 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.sb-success-icon-anim {
+  margin: 0 auto 20px;
+  display: block;
+  animation: scaleBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.sb-success-title {
+  font-size: 28px;
+  color: #0f172a;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.sb-success-desc {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.sb-success-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sb-btn-primary, .sb-btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.sb-btn-primary {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.sb-btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.35);
+}
+
+.sb-btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.sb-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleBounce {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+/* =========================================
+   Background Watermarks (Professional Look)
+   ========================================= */
+
+.sb-page {
+  position: relative;
+  overflow: hidden;
+  background-color: #f8fafc; /* হালকা ব্যাকগ্রাউন্ড */
+  min-height: 100vh;
+}
+
+.sb-container {
+  position: relative;
+  z-index: 10; /* ফর্মটি যেন ওয়াটারমার্কের উপরে থাকে */
+}
+
+/* Watermark Wrapper */
+.sb-watermarks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none; /* ইউজার যেন ফর্ম ক্লিক করতে পারে */
+  z-index: 0;
+}
+
+/* Individual Watermarks */
+.sb-wm {
+  position: absolute;
+  color: #cbd5e1; /* খুব হালকা ধূসর/নীল কালার */
+  opacity: 0.15; /* অপাসিটি অনেক কম যাতে ডিস্টার্ব না করে */
+}
+
+.sb-wm svg {
+  width: 350px;
+  height: 350px;
+}
+
+/* Street Light - Top Left */
+.sb-wm-1 {
+  top: -50px;
+  left: -80px;
+  transform: rotate(-10deg);
+  animation: floatSlow 8s ease-in-out infinite alternate;
+}
+
+/* Road - Bottom Right */
+.sb-wm-2 {
+  bottom: -80px;
+  right: -50px;
+  opacity: 0.12;
+  transform: rotate(15deg);
+  animation: floatSlow 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Car - Right Side Middle */
+.sb-wm-3 {
+  top: 30%;
+  right: -120px;
+  opacity: 0.1;
+  animation: floatSlow 9s ease-in-out infinite alternate;
+}
+
+/* Traffic Cone - Bottom Left */
+.sb-wm-4 {
+  bottom: 10%;
+  left: -80px;
+  opacity: 0.12;
+  transform: rotate(-15deg);
+  animation: floatSlow 7s ease-in-out infinite alternate-reverse;
+}
+
+/* Subtle floating animation for watermarks */
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(auto); }
+  100% { transform: translateY(20px) rotate(auto); }
+}
+
+/* Disable watermarks on very small screens to avoid clutter */
+@media (max-width: 768px) {
+  .sb-watermarks {
+    display: none;
+  }
+}
+/* =========================================
+   Background Watermarks (Professional Look) - FIXED
+   ========================================= */
+
+.sb-page {
+  position: relative;
+  background-color: #f8fafc; 
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.sb-container {
+  position: relative;
+  z-index: 10; /* ফর্মটি উপরে থাকবে */
+}
+
+/* Watermark Wrapper - Fixed Position */
+.sb-watermarks {
+  position: fixed; /* absolute থেকে fixed করা হলো যাতে স্ক্রল করলেও পেছনে থাকে */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none; 
+  z-index: -1; /* সবার পেছনে থাকবে */
+}
+
+/* Individual Watermarks */
+.sb-wm {
+  position: absolute;
+  color: #94a3b8; /* রঙ একটু গাঢ় করা হলো যাতে সহজে চোখে পড়ে */
+  opacity: 0.15; /* অপাসিটি */
+}
+
+.sb-wm svg {
+  width: 400px; /* সাইজ বড় করা হলো */
+  height: 400px;
+}
+
+/* Street Light - Top Left */
+.sb-wm-1 {
+  top: -50px;
+  left: -100px;
+  transform: rotate(-10deg);
+  animation: floatSlow 8s ease-in-out infinite alternate;
+}
+
+/* Road - Bottom Right */
+.sb-wm-2 {
+  bottom: -100px;
+  right: -50px;
+  transform: rotate(15deg);
+  animation: floatSlow 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Car - Right Side Middle */
+.sb-wm-3 {
+  top: 25%;
+  right: -150px;
+  animation: floatSlow 9s ease-in-out infinite alternate;
+}
+
+/* Traffic Cone - Bottom Left */
+.sb-wm-4 {
+  bottom: 5%;
+  left: -80px;
+  transform: rotate(-15deg);
+  animation: floatSlow 7s ease-in-out infinite alternate-reverse;
+}
+
+/* Floating Animation */
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(auto); }
+  100% { transform: translateY(25px) rotate(auto); }
+}
+
+/* Mobile Screen Adjustment */
+@media (max-width: 768px) {
+  .sb-wm svg {
+    width: 200px; /* মোবাইলে ওয়াটারমার্ক ছোট হয়ে দেখাবে, হাইড হবে না */
+    height: 200px;
+  }
+  .sb-wm-1 { left: -50px; top: -20px; }
+  .sb-wm-2 { right: -20px; bottom: -50px; }
+}

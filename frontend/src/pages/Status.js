@@ -93,6 +93,12 @@ const CheckIcon = () => (
   </svg>
 );
 
+// 🔥 Background Watermark Icons (Issue/Status Related) 🔥
+const WmClipboard = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14h6M9 18h6M9 10h.01"/></svg>;
+const WmSearch = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>;
+const WmMapPin = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+const WmTracking = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>;
+
 export default function Status() {
   const [problems, setProblems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -136,6 +142,14 @@ export default function Status() {
 
   return (
     <div className="st-page-wrapper">
+
+      {/* 🔥 Background Watermarks 🔥 */}
+      <div className="st-watermarks">
+        <div className="st-wm st-wm-1"><WmClipboard /></div>
+        <div className="st-wm st-wm-2"><WmSearch /></div>
+        <div className="st-wm st-wm-3"><WmMapPin /></div>
+        <div className="st-wm st-wm-4"><WmTracking /></div>
+      </div>
 
       {/* === HERO === */}
       <header className="st-hero">

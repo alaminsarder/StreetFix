@@ -591,3 +591,83 @@
   .st-filter-num { font-size: 1.5rem; }
   .st-rate-card { flex-direction: column; text-align: center; padding: 18px; }
 }
+/* =========================================
+   Background Watermarks (Issue Tracking Look)
+   ========================================= */
+
+.st-page-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Watermark Wrapper - Fixed Position */
+.st-watermarks {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none; /* যাতে কার্ডগুলোতে ক্লিক করতে সমস্যা না হয় */
+  z-index: -1; /* সবার পেছনে থাকবে */
+}
+
+/* Individual Watermarks */
+.st-wm {
+  position: absolute;
+  color: #94a3b8; /* হালকা নীল/ধূসর কালার */
+  opacity: 0.12; /* অপাসিটি কম যাতে ডিস্টার্ব না করে */
+}
+
+.st-wm svg {
+  width: 400px;
+  height: 400px;
+}
+
+/* Clipboard - Top Left */
+.st-wm-1 {
+  top: -50px;
+  left: -100px;
+  transform: rotate(-10deg);
+  animation: stFloatSlow 8s ease-in-out infinite alternate;
+}
+
+/* Search / Magnifying Glass - Bottom Right */
+.st-wm-2 {
+  bottom: -100px;
+  right: -50px;
+  transform: rotate(15deg);
+  animation: stFloatSlow 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Map Pin - Right Side Middle */
+.st-wm-3 {
+  top: 30%;
+  right: -150px;
+  opacity: 0.08;
+  animation: stFloatSlow 9s ease-in-out infinite alternate;
+}
+
+/* Activity Tracking - Bottom Left */
+.st-wm-4 {
+  bottom: 5%;
+  left: -80px;
+  transform: rotate(-15deg);
+  animation: stFloatSlow 7s ease-in-out infinite alternate-reverse;
+}
+
+/* Floating Animation */
+@keyframes stFloatSlow {
+  0% { transform: translateY(0px) rotate(auto); }
+  100% { transform: translateY(25px) rotate(auto); }
+}
+
+/* Mobile Screen Adjustment */
+@media (max-width: 768px) {
+  .st-wm svg {
+    width: 200px; 
+    height: 200px;
+  }
+  .st-wm-1 { left: -50px; top: -20px; }
+  .st-wm-2 { right: -20px; bottom: -50px; }
+}
